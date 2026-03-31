@@ -1,0 +1,19 @@
+# Dependencies
+node_modules/
+.DS_Store
+
+# Environment Variables
+.env
+.env.local
+.env.*.local
+
+# Build outputs
+dist/
+build/
+.cache/
+
+# IDE files
+.vscode/
+.idea/
+.gemini/
+*.log

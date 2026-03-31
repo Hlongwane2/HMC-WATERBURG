@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="HMCI WATERBURG - Your trusted platform for amazing experiences. Sign in to access all features and manage your account with secure login and fast access.">
+    <meta name="keywords" content="HMCI WATERBURG, login, platform, dashboard, secure, user account">
+    <meta name="author" content="HMCI WATERBURG">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="HMCI WATERBURG - Trusted Online Platform">
+    <meta property="og:description"
+        content="Sign in to HMCI WATERBURG for secure access to your account and dashboard.">
+    <meta property="og:type" content="website">
+    <title>HMCI WATERBURG</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="canonical" href="https://yourdomain.com/website.html">
+</head>
+
+<body>
+    <!-- Login Form -->
+    <div id="loginDiv" class="login-container">
+        <!-- Information and Picture Section -->
+        <div class="login-info-section">
+            <div class="login-info">
+                <img src="logo.png" alt="HMCI WATERBURG Logo" class="login-logo-img">
+                <h1>Welcome to HMCI WATERBURG</h1>
+                <p>Your trusted platform for amazing experiences. Sign in to access all features and manage your
+                    account.</p>
+                <ul class="info-list">
+                    <li>✓ Secure Login</li>
+                    <li>✓ Fast Access</li>
+                    <li>✓ User-Friendly Interface</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Login Form Section -->
+        <div class="login-box" id="loginBox">
+            <h2>Login</h2>
+            <form id="loginForm">
+                <input type="email" id="username" placeholder="Email Address" required>
+                <input type="password" id="password" placeholder="Password" required>
+                <button type="submit" id="loginBtn">Log In</button>
+            </form>
+            <p id="errorMsg" class="error"></p>
+            <p class="login-footer">Don't have an account? <a href="#" id="signupLink">Sign Up</a></p>
+        </div>
+
+        <!-- Sign Up Form Section (hidden initially) -->
+        <div class="login-box" id="signupBox" style="display: none;">
+            <h2>Create Account</h2>
+            <form id="signupForm">
+                <input type="text" id="signupUsername" placeholder="Username" required>
+                <input type="email" id="signupEmail" placeholder="Email" required>
+                <input type="password" id="signupPassword" placeholder="Password" required>
+                <input type="password" id="signupConfirmPassword" placeholder="Confirm Password" required>
+                <button type="submit" id="signupBtn">Create Account</button>
+            </form>
+            <p id="signupError" class="error"></p>
+            <p class="login-footer">Already have an account? <a href="#" id="loginLink">Log In</a></p>
+        </div>
+    </div>
+
+    <!-- Main Website Content (hidden initially) -->
+    <div id="mainContent" class="main-content">
+        <nav class="navbar">
+            <div class="navbar-branding">
+                <img src="logo.png" alt="Logo" class="nav-logo-img">
+                <h1>HMCI WATERBURG Dashboard</h1>
+            </div>
+            <div class="navbar-right">
+                <button id="menuBtn" class="menu-btn" aria-label="Settings menu">☰</button>
+                <button id="logoutBtn" class="logout-btn">Log Out</button>
+            </div>
+        </nav>
+        <div class="content">
+            <div class="dashboard-container">
+                <div class="user-header">
+                    <div class="user-avatar">
+                        <img src="logo.png" alt="User Logo"
+                            style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">
+                    </div>
+                    <div class="user-greeting">
+                        <h2>Welcome, <span id="userDisplay">HMCI WATERBURG</span></h2>
+                        <p>You have successfully logged in</p>
+                    </div>
+                </div>
+
+                <div class="info-cards">
+                    <div class="info-card">
+                        <h3>Account Information</h3>
+                        <p><strong>Username:</strong> <span id="displayUsername">Admin</span></p>
+                        <p><strong>Status:</strong> <span id="displayStatus" class="status-active">Active</span></p>
+                        <p><strong>Last Login:</strong> <span id="displayLastLogin">Today at 2:30 PM</span></p>
+                    </div>
+
+                    <div class="info-card">
+                        <h3>Quick Stats</h3>
+                        <p><strong>Total Sessions:</strong> <span id="displayTotalSessions">5</span></p>
+                        <p><strong>Account Age:</strong> <span id="displayAccountAge">6 months</span></p>
+                        <p><strong>Security Level:</strong> <span id="displaySecurityLevel"
+                                class="security-high">High</span></p>
+                    </div>
+                </div>
+
+                <div id="statusMessage" class="status-message" aria-live="polite"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for dialogs (change password, profile, activity, etc.) -->
+    <div id="modal" class="modal hidden" aria-hidden="true">
+        <div class="modal-overlay" id="modalOverlay"></div>
+        <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+            <div id="modalBody"></div>
+        </div>
+    </div>
+
+    <script type="module" src="script.js"></script>
+</body>
+
+</html>
