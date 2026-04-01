@@ -135,6 +135,58 @@ h1, h2, h3 {
     background: rgba(15, 23, 42, 0.8);
 }
 
+.password-container {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.password-container input {
+    /* No extra padding-right needed since icon is outside */
+    padding-right: 16px; 
+}
+
+.toggle-password {
+    position: absolute;
+    right: -30px; /* Sit right outside the box on the right */
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent !important;
+    border: none !important;
+    color: #000000; /* Black color */
+    cursor: pointer;
+    padding: 0; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px; /* Optimized size */
+    z-index: 10;
+    width: 24px !important; /* Rock-solid fixed width */
+    height: 24px !important; /* Rock-solid fixed height */
+    margin: 0 !important;
+    box-shadow: none !important;
+    outline: none !important;
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+.toggle-password span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    line-height: 1;
+    pointer-events: none; /* Icon is just visual */
+    transition: opacity 0.2s ease; /* Smooth fade, NO movement */
+}
+
+.toggle-password:disabled {
+    cursor: default;
+    opacity: 0.5;
+}
+
 .login-box button {
     width: 100%;
     padding: 14px;

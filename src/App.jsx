@@ -14,8 +14,10 @@ export default function App() {
   // Form states
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
   const [username, setUsername] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [error, setError] = useState('');
   const [statusMsg, setStatusMsg] = useState('');
 
@@ -71,9 +73,28 @@ export default function App() {
     e.preventDefault();
     setError('');
     setAuthLoading(true);
+
+    let loginEmail = email;
+
+    // Resolve username to email if identifier is not an email
+    if (!email.includes('@')) {
+      const { data, error: profileError } = await supabase
+        .from('profiles')
+        .select('email')
+        .eq('username', email)
+        .single();
+
+      if (profileError || !data) {
+        setError('Username not found. Please check your spelling or use your email.');
+        setAuthLoading(false);
+        return;
+      }
+      loginEmail = data.email;
+    }
+
     const { data, error } = await supabase.auth.signInWithPassword({
-      email,
-      password,
+      email: loginEmail,
+      password: password,
     });
 
     if (error) {
@@ -87,7 +108,7 @@ export default function App() {
       setAuthLoading(false);
     }
   };
- bitumen
+
   const handleSignup = async (e) => {
     e.preventDefault();
     setError('');
@@ -272,8 +293,24 @@ export default function App() {
           <h2>Login</h2>
           <form onSubmit={handleLogin}>
             {error && <div className="error-alert">{error}</div>}
-            <input type="email" placeholder="Email Address" value={email} onChange={(e) => setEmail(e.target.value)} required />
-            <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} required />
+            <input type="text" placeholder="Email or Username" value={email} onChange={(e) => setEmail(e.target.value)} required />
+            <div className="password-container">
+              <input 
+                type={showPassword ? "text" : "password"} 
+                placeholder="Password" 
+                value={password} 
+                onChange={(e) => setPassword(e.target.value)} 
+                required 
+              />
+              <button 
+                type="button" 
+                className="toggle-password" 
+                onClick={() => setShowPassword(!showPassword)}
+                aria-label="Toggle password visibility"
+              >
+                <span style={{ opacity: showPassword ? 1 : 0.3 }}>👁️</span>
+              </button>
+            </div>
             <button type="submit" disabled={authLoading}>
               {authLoading ? 'Logging in...' : 'Log In'}
             </button>
@@ -287,8 +324,40 @@ export default function App() {
             {error && <div className="error-alert">{error}</div>}
             <input type="text" placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)} required />
             <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} required />
-            <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} required />
-            <input type="password" placeholder="Confirm" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} required />
+            <div className="password-container">
+              <input 
+                type={showPassword ? "text" : "password"} 
+                placeholder="Password" 
+                value={password} 
+                onChange={(e) => setPassword(e.target.value)} 
+                required 
+              />
+              <button 
+                type="button" 
+                className="toggle-password" 
+                onClick={() => setShowPassword(!showPassword)}
+                aria-label="Toggle password visibility"
+              >
+                <span style={{ opacity: showPassword ? 1 : 0.3 }}>👁️</span>
+              </button>
+            </div>
+            <div className="password-container">
+              <input 
+                type={showConfirmPassword ? "text" : "password"} 
+                placeholder="Confirm" 
+                value={confirmPassword} 
+                onChange={(e) => setConfirmPassword(e.target.value)} 
+                required 
+              />
+              <button 
+                type="button" 
+                className="toggle-password" 
+                onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                aria-label="Toggle password visibility"
+              >
+                <span style={{ opacity: showConfirmPassword ? 1 : 0.3 }}>👁️</span>
+              </button>
+            </div>
             <button type="submit" disabled={authLoading}>
               {authLoading ? 'Creating Account...' : 'Sign Up'}
             </button>

@@ -1,7 +1,7 @@
 -- Create a profiles table for user metadata
 CREATE TABLE IF NOT EXISTS public.profiles (
   id UUID REFERENCES auth.users(id) ON DELETE CASCADE PRIMARY KEY,
-  username TEXT,
+  username TEXT UNIQUE,
   email TEXT,
   status TEXT DEFAULT 'Active',
   security_level TEXT DEFAULT 'Medium',

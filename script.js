@@ -290,6 +290,23 @@ function bindEvents() {
     elements.loginLink.addEventListener('click', e => { e.preventDefault(); showLoginForm(); });
     elements.menuBtn.addEventListener('click', handleSettings);
     elements.modalOverlay.addEventListener('click', hideModal);
+
+    // Password visibility toggles
+    const setupToggle = (btnId, inputId) => {
+        const btn = document.getElementById(btnId);
+        const input = document.getElementById(inputId);
+        if (btn && input) {
+            btn.onclick = () => {
+                const isPassword = input.type === 'password';
+                input.type = isPassword ? 'text' : 'password';
+                btn.textContent = isPassword ? '👁️‍🗨️' : '👁️';
+            };
+        }
+    };
+
+    setupToggle('toggleLoginPassword', 'password');
+    setupToggle('toggleSignupPassword', 'signupPassword');
+    setupToggle('toggleSignupConfirmPassword', 'signupConfirmPassword');
 }
 
 async function init() {
