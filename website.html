@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="HMCI WATERBERG - Your trusted platform for amazing experiences. Sign in to access all features and manage your account with secure login and fast access.">
+    <meta name="keywords" content="HMCI WATERBERG, login, platform, dashboard, secure, user account">
+    <meta name="author" content="HMCI WATERBERG">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="HMCI WATERBERG - Trusted Online Platform">
+    <meta property="og:description"
+        content="Sign in to HMCI WATERBERG for secure access to your account and dashboard.">
+    <meta property="og:type" content="website">
+    <title>HMCI WATERBURG</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="canonical" href="https://yourdomain.com/website.html">
+</head>
+
+<body>
+    <!-- Login Form -->
+    <div id="loginDiv" class="login-container">
+        <!-- Information and Picture Section -->
+        <div class="login-info-section">
+            <div class="login-info">
+                <img src="logo.png" alt="HMCI WATERBERG Logo" class="login-logo-img">
+                <h1>Welcome to HMCI WATERBURG</h1>
+                <p>Your trusted platform for amazing experiences. Sign in to access all features and manage your
+                    account.</p>
+                <ul class="info-list">
+                    <li>✓ Secure Login</li>
+                    <li>✓ Fast Access</li>
+                    <li>✓ User-Friendly Interface</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Login Form Section -->
+        <div class="login-box" id="loginBox">
+            <h2>Login</h2>
+            <form id="loginForm">
+                <input type="email" id="username" placeholder="Email Address" required>
+                <div class="password-container">
+                    <input type="password" id="password" placeholder="Password" required>
+                    <button type="button" class="toggle-password" id="toggleLoginPassword"
+                        aria-label="Toggle password visibility">👁️</button>
+                </div>
+                <button type="submit" id="loginBtn">Log In</button>
+            </form>
+            <p id="errorMsg" class="error"></p>
+            <a href="#" class="forgot-password-link" id="forgotPasswordLink">Forgotten Password?</a>
+            <p class="login-footer">Don't have an account? <a href="#" id="signupLink">Create Account</a></p>
+        </div>
+
+        <!-- Recovery Form Section (hidden initially) -->
+        <div class="login-box" id="recoveryBox" style="display: none;">
+            <h2>Recover Account</h2>
+            <div id="recoveryPhoneStep">
+                <p style="font-size: 14px; margin-bottom: 20px; color: var(--text-secondary);">Enter your phone number
+                    to receive a secure login OTP.</p>
+                <input type="tel" id="recoveryPhone" placeholder="Phone Number (e.g. +27...)" required>
+                <button type="button" id="sendOTPBtn">Send OTP</button>
+            </div>
+            <div id="recoveryVerifyStep" style="display: none;">
+                <p style="font-size: 14px; margin-bottom: 20px; color: var(--text-secondary);">Enter the code sent to
+                    your phone.</p>
+                <input type="text" id="recoveryOTP" placeholder="OTP Code" required>
+                <button type="button" id="verifyOTPBtn">Verify & Login</button>
+            </div>
+            <p id="recoveryError" class="error"></p>
+            <p class="login-footer"><a href="#" id="backToLoginLink">Back to Login</a></p>
+        </div>
+
+        <!-- Sign Up Form Section (hidden initially) -->
+        <div class="login-box" id="signupBox" style="display: none;">
+            <h2>Create Account</h2>
+            <form id="signupForm">
+                <input type="text" id="signupUsername" placeholder="Username" required>
+                <input type="email" id="signupEmail" placeholder="Email" required>
+                <input type="tel" id="signupPhone" placeholder="Phone Number" required>
+                <input type="text" id="signupBranch" placeholder="Branch" required>
+                <div class="password-container">
+                    <input type="password" id="signupPassword" placeholder="Password" required>
+                    <button type="button" class="toggle-password" id="toggleSignupPassword"
+                        aria-label="Toggle password visibility">👁️</button>
+                </div>
+                <div class="password-container">
+                    <input type="password" id="signupConfirmPassword" placeholder="Confirm Password" required>
+                    <button type="button" class="toggle-password" id="toggleSignupConfirmPassword"
+                        aria-label="Toggle password visibility">👁️</button>
+                </div>
+                <button type="submit" id="signupBtn">Create Account</button>
+            </form>
+            <p id="signupError" class="error"></p>
+            <p class="login-footer">Already have an account? <a href="#" id="loginLink">Log In</a></p>
+        </div>
+    </div>
+
+    <!-- Main Website Content (hidden initially) -->
+    <div id="mainContent" class="main-content">
+        <nav class="navbar">
+            <div class="navbar-branding">
+                <img src="logo.png" alt="Logo" class="nav-logo-img">
+                <h1>HMCI WATERBURG Dashboard</h1>
+            </div>
+            <div class="navbar-right">
+                <button id="menuBtn" class="menu-btn" aria-label="Settings menu">☰</button>
+            </div>
+        </nav>
+        <div class="content">
+            <div class="dashboard-container">
+                <div class="user-header">
+                    <div class="user-avatar">
+                        <img src="logo.png" alt="User Logo"
+                            style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">
+                    </div>
+                    <div class="user-greeting">
+                        <div class="user-status-badge">JUNIOR YOUTH (2024 - 2026)</div>
+                        <h2>Welcome, <span id="userDisplay">HMCI WATERBURG</span></h2>
+                        <p>OCCUPY TILL I COME</p>
+                        <div class="user-info-bar">
+                            <div class="user-info-item">
+                                📍 Branch: <span id="branchDisplay">Not Set</span>
+                            </div>
+                            <div class="user-info-item">
+                                📞 Contact: <span id="phoneDisplay">Not Set</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-actions">
+                    <div class="action-card">
+                        <div class="action-icon">📝</div>
+                        <div class="action-info">
+                            <h3>JUNIOR YOUTH NOTES</h3>
+                            <p>Access session materials and resources</p>
+                        </div>
+                    </div>
+                </div>
+                <div id="statusMessage" class="status-message" aria-live="polite"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Settings Modal -->
+    <div id="settingsOverlay" class="settings-overlay" style="display: none;">
+        <div class="settings-modal">
+            <div class="settings-header">
+                <h2>Profile Settings</h2>
+                <button id="closeSettingsModalBtn" class="close-modal-btn">✕</button>
+            </div>
+            <div id="settingsContent" class="settings-content">
+                <!-- Content will be injected by script.js -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Notes View (Replacing Dashboard) -->
+    <div id="notesView" class="notes-view" style="display: none;">
+        <div class="notes-header">
+            <button id="backToDashBtn" class="back-btn">← Back to Dashboard</button>
+            <h1>Junior Youth Notes</h1>
+            <p>Healing Ministry Church – Waterberg | Age Group: 13 - 15</p>
+        </div>
+
+        <div class="notes-content">
+            <section class="notes-section">
+                <div class="section-title">
+                    <span class="section-num">1</span>
+                    <h2>The Holy Bible</h2>
+                </div>
+                <ul>
+                    <li>Written by Men, inspired by God, hence the Word of God</li>
+                    <li>God breathed knowledge into their spirit (minds) and they began to write it down.</li>
+                    <li>No one should add or remove anything written in this Holy book. <span class="scripture">Rev
+                            22:18-19</span></li>
+                    <li>The Holy Scriptures are written so that we may believe that Jesus is the Christ. <span
+                            class="scripture">John 20:31</span></li>
+                </ul>
+            </section>
+
+            <section class="notes-section">
+                <div class="section-title">
+                    <span class="section-num">2</span>
+                    <h2>Be Principled</h2>
+                </div>
+                <ul>
+                    <li>Don't do or say what you feel or are emotional about...feelings and emotions can lie. <span
+                            class="scripture">Rom 1:21-32</span></li>
+                    <li class="sub-point">You don't become a man because you feel like a man, or animal because you feel
+                        animalistic. You are a man because God created you that way.</li>
+                    <li class="sub-point">God never created gays/lesbians. He is not the God of confusion. <span
+                            class="scripture">1Cor 14:33</span></li>
+                </ul>
+                <div class="scripture-block">
+                    <p>And that from childhood you have known the Holy Scriptures, which are able to make you wise for
+                        salvation through faith which is in Christ Jesus. <strong>2Tim 3:15-16</strong></p>
+                </div>
+                <ul>
+                    <li class="sub-point">Sexual related activities are not for experiment/excitement... <span
+                            class="scripture">1Cor 6:9-10</span></li>
+                    <li class="sub-point">Love does not mean friendship. Hatred can corrupt your destiny.</li>
+                    <li>Learn the right things and do them. This is the <strong>FEAR OF THE LORD</strong>. <span
+                            class="scripture">Daniel 3:18, 1Sam 15:23</span></li>
+                    <li>Develop courage to say no to the wrong things. <span class="scripture">Leviticus 18:6,
+                            22-24</span></li>
+                </ul>
+            </section>
+
+            <section class="notes-section">
+                <div class="section-title">
+                    <span class="section-num">3</span>
+                    <h2>Honor your Parents/Leaders</h2>
+                </div>
+                <div class="scripture-ref">Eph 6:1-3</div>
+                <ul>
+                    <li>Learn to respect your parents always...even when they are drunk.</li>
+                    <li>Learn to respect your leaders/pastors</li>
+                </ul>
+            </section>
+
+            <section class="notes-section">
+                <div class="section-title">
+                    <span class="section-num">4</span>
+                    <h2>The Power of Consistency</h2>
+                </div>
+                <ul>
+                    <li>Read (bible) and pray every day</li>
+                    <li>Study your school books daily</li>
+                </ul>
+            </section>
+
+            <section class="notes-section">
+                <div class="section-title">
+                    <span class="section-num">5</span>
+                    <h2>Prayer</h2>
+                </div>
+                <ul>
+                    <li>It is a way to communicate with God: Ask, knock, seek... <span class="scripture">Matt
+                            7:7-8</span></li>
+                    <li>A means to change things and strengthen oneself. <span class="scripture">Acts 12:5, Jam
+                            5:16</span></li>
+                    <li><strong>FASTING</strong> is another means to boost our prayers. <span class="scripture">Matt
+                            17:21, Esther 4:15-16</span></li>
+                </ul>
+            </section>
+
+            <section class="notes-section">
+                <div class="section-title">
+                    <span class="section-num">6</span>
+                    <h2>Jesus is Lord and King Now</h2>
+                </div>
+                <ul>
+                    <li>Jesus is the only Saviour of the world. <span class="scripture">Acts 4:12</span></li>
+                    <li>The devil is a defeated enemy, bound by Christ through the cross. <span class="scripture">Col
+                            2:15, Jam 4:7</span></li>
+                </ul>
+            </section>
+
+            <section class="notes-section">
+                <div class="section-title">
+                    <span class="section-num">7</span>
+                    <h2>Our Identity</h2>
+                </div>
+                <ul>
+                    <li>You are not what your feelings or people say you are, but what God says you are.</li>
+                    <li>You are God's workmanship created for his glory. <span class="scripture">Eph 2:10</span></li>
+                </ul>
+            </section>
+
+            <section class="notes-section">
+                <div class="section-title">
+                    <span class="section-num">8</span>
+                    <h2>Dreams, Destiny and Goals</h2>
+                </div>
+                <ul>
+                    <li>Have a clear Goal of your life. What do you want? <span class="scripture">Phil 4:13</span></li>
+                    <li>Success is a result of having goals (Focus and consistency).</li>
+                    <li>Avoid things that sabotage your goals: Laziness, bad friends, toxic social media.</li>
+                </ul>
+            </section>
+        </div>
+    </div>
+    </div>
+    </div>
+
+    <!-- Modal for dialogs (change password, profile, activity, etc.) -->
+    <div id="modal" class="modal hidden" aria-hidden="true">
+        <div class="modal-overlay" id="modalOverlay"></div>
+        <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+            <div id="modalBody"></div>
+        </div>
+    </div>
+
+    <script type="module" src="script.js"></script>
+</body>
+
+</html>
